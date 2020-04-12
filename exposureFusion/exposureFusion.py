@@ -99,10 +99,9 @@ if __name__ == "__main__":
 
     np.random.seed()
     src_contents = os.walk(SRC_FOLDER)
-    dirpath, _, fnames = src_contents.__next__()
-
-    image_dir = os.path.split(dirpath)[-1]
-    output_dir = os.path.join(OUT_FOLDER, image_dir)
+    for dirpath, _, fnames in os.walk(SRC_FOLDER):
+        image_dir = os.path.split(dirpath)[-1]
+        output_dir = os.path.join(OUT_FOLDER, image_dir)
 
     try:
         os.makedirs(output_dir)
